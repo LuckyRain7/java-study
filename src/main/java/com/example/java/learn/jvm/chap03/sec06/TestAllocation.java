@@ -1,8 +1,8 @@
-package com.example.java.learn.jvm.chap3.sec6;
+package com.example.java.learn.jvm.chap03.sec06;
 
 /**
  * 
- * -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+ * -XX:+UseSerialGC -verbose:gc -Xms20M -Xmx20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
  * 
  * @author zhouwei
  *

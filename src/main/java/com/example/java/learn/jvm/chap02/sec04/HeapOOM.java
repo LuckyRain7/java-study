@@ -1,8 +1,14 @@
-package com.example.java.learn.jvm.chap2.sec4;
+package com.example.java.learn.jvm.chap02.sec04;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * -verbose:gc -Xms20M -Xmx20M -XX:+PrintGCDetails -XX:SurvivorRatio=8 -XX:+HeapDumpOnOutOfMemoryError
+ * 
+ * @author zhouwei
+ *
+ */
 public class HeapOOM {
 	
 	static class OOMObject {

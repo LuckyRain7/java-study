@@ -1,4 +1,4 @@
-package com.example.java.learn.jvm.chap3.sec4;
+package com.example.java.learn.jvm.chap03.sec04;
 
 public class FinalizeEscapeGC {
 	

@@ -1,4 +1,4 @@
-package com.example.java.learn.jvm.chap2.sec4;
+package com.example.java.learn.jvm.chap02.sec04;
 
 import java.lang.reflect.Method;
 
