@@ -8,7 +8,8 @@ public class ClassLoaderTest {
 
 	public static void main(String[] args)
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException {
-
+		printClassLoaders();
+		
 		ClassLoader myLoader = new ClassLoader() {
 			@Override
 			public Class<?> loadClass(String name) throws ClassNotFoundException {
@@ -16,6 +17,7 @@ public class ClassLoaderTest {
 					String fileName = name.substring(name.lastIndexOf(".") + 1) + ".class";
 					InputStream is = getClass().getResourceAsStream(fileName);
 					if (is == null) {
+						System.out.println("is == null");
 						return super.loadClass(name);
 					}
 					byte[] b = new byte[is.available()];
@@ -26,7 +28,9 @@ public class ClassLoaderTest {
 				}
 			}
 		};
-
+		String myStr = (String) myLoader.loadClass("java.lang.String").newInstance();
+		System.out.println("myStr: " + myStr);
+		
 		Object obj = myLoader.loadClass("com.example.java.learn.jvm.chap07.sec04.ClassLoaderTest").newInstance();
 		System.out.println(obj.getClass());
 		System.out.println(obj instanceof ClassLoaderTest);
@@ -40,6 +44,7 @@ public class ClassLoaderTest {
 		}
 		System.out.println(loader);
 		System.out.println();
+		System.out.println("thread context class loader: " + Thread.currentThread().getContextClassLoader());
 
 		System.out.println("CLASSPATH: " + System.getProperty("CLASSPATH"));
 		System.out.println();
