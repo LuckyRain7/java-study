@@ -1,40 +1,32 @@
 package com.example.java.learn.zookeeper;
 
-import java.util.List;
+import java.io.IOException;
 
 import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.KeeperException;
 import org.apache.zookeeper.ZooDefs.Ids;
-import org.apache.zookeeper.ZooKeeper;
-import org.apache.zookeeper.data.ACL;
 
-public class CreateGroup {
+public class CreateGroup extends ConnWatcher {
 
-	private static ZooKeeper zk;
+	public CreateGroup() throws IOException, InterruptedException {
+		super();
+	}
 
-	public static void main(String[] args) throws InterruptedException {
-		Config conf = new Config();
-		ZkHolder holder = null;
+	void createGroup(String groupName) throws KeeperException, InterruptedException {
+		String path = "/" + groupName;
+		String createdPath = zk.create(path, null, Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+		System.out.println("Created " + createdPath);
+	}
+
+	public static void main(String[] args) throws IOException, InterruptedException {
+		CreateGroup obj = new CreateGroup();
 		try {
-			holder = new ZkHolder(conf);
-			zk = holder.get();
-			createGroup("zoo");
+			obj.createGroup("zoo");
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
-			if (holder != null) {
-				holder.destroy();
-			}
+			obj.destroy();
 		}
-	}
-
-	private static void createGroup(String groupName) throws KeeperException, InterruptedException {
-		String path = "/" + groupName;
-		byte data[] = null;
-		List<ACL> acl = Ids.OPEN_ACL_UNSAFE;
-		CreateMode createMode = CreateMode.PERSISTENT;
-		String createdPath = zk.create(path, data, acl, createMode);
-		System.out.println("Created " + createdPath);
 	}
 
 }

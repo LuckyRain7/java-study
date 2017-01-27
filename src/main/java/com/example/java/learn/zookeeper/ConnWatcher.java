@@ -2,34 +2,29 @@ package com.example.java.learn.zookeeper;
 
 import java.io.IOException;
 import java.util.concurrent.CountDownLatch;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooKeeper;
 
-public class ZkHolder implements Watcher {
+public class ConnWatcher implements Watcher {
 
-	private ZooKeeper zk;
+	protected ZooKeeper zk;
 	private CountDownLatch connectedSignal = new CountDownLatch(1);
-	private AtomicBoolean connected = new AtomicBoolean(false);
-
-	public ZkHolder(Config conf) throws IOException, InterruptedException {
-		this.zk = new ZooKeeper(conf.getHosts(), conf.getSessionTimeoutMillis(), this);
-	}
 	
-	public ZooKeeper get() throws InterruptedException {
-		while (this.connected.get() == false) {
-			this.connectedSignal.await();
-		}
-		return zk;
+	public ConnWatcher() throws IOException, InterruptedException {
+		this(new Config());
+	}
+
+	public ConnWatcher(Config conf) throws IOException, InterruptedException {
+		this.zk = new ZooKeeper(conf.getHosts(), conf.getSessionTimeoutMillis(), this);
+		this.connectedSignal.await();
 	}
 
 	public void destroy() throws InterruptedException {
 		this.zk.close();
 		this.zk = null;
-		this.connected = null;
 		this.connectedSignal = null;
 	}
 
@@ -37,7 +32,6 @@ public class ZkHolder implements Watcher {
 	public void process(WatchedEvent event) {
 		if (event.getState() == KeeperState.SyncConnected) {
 			this.connectedSignal.countDown();
-			this.connected.set(true);
 		}
 	}
 
