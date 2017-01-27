@@ -8,7 +8,7 @@ import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
 import org.apache.zookeeper.ZooKeeper;
 
-public class ConnWatcher implements Watcher {
+public class ConnWatcher implements Watcher, AutoCloseable {
 
 	protected ZooKeeper zk;
 	private CountDownLatch connectedSignal = new CountDownLatch(1);
@@ -22,17 +22,18 @@ public class ConnWatcher implements Watcher {
 		this.connectedSignal.await();
 	}
 
-	public void destroy() throws InterruptedException {
-		this.zk.close();
-		this.zk = null;
-		this.connectedSignal = null;
-	}
-
 	@Override
 	public void process(WatchedEvent event) {
 		if (event.getState() == KeeperState.SyncConnected) {
 			this.connectedSignal.countDown();
 		}
+	}
+
+	@Override
+	public void close() throws Exception {
+		this.zk.close();
+		this.zk = null;
+		this.connectedSignal = null;
 	}
 
 }

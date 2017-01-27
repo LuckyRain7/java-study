@@ -12,21 +12,16 @@ public class CreateGroup extends ConnWatcher {
 		super();
 	}
 
-	void createGroup(String groupName) throws KeeperException, InterruptedException {
+	void create(String groupName) throws KeeperException, InterruptedException {
 		String path = "/" + groupName;
 		String createdPath = zk.create(path, null, Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
 		System.out.println("Created " + createdPath);
 	}
 
-	public static void main(String[] args) throws IOException, InterruptedException {
-		CreateGroup obj = new CreateGroup();
-		try {
-			obj.createGroup("zoo");
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			obj.destroy();
-		}
+	public static void main(String[] args) throws Exception {
+		try (CreateGroup obj = new CreateGroup()) {
+			obj.create("zoo");
+		} 
 	}
 
 }
