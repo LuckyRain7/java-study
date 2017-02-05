@@ -18,16 +18,30 @@ public class Tool {
 		}
 	}
 
-	public static <K, V> void printMap(Map<K, V> map) {
-		Iterator<Entry<K, V>> it = map.entrySet().iterator();
+	public static void printMap(Map<String, String> map) {
+		Iterator<Entry<String, String>> it = map.entrySet().iterator();
 		StringBuilder sb = new StringBuilder();
 		boolean empty = map.isEmpty();
 		while (it.hasNext()) {
-			Entry<K, V> entry = it.next();
+			Entry<String, String> entry = it.next();
+			String key = entry.getKey();
+			String value = entry.getValue();
 			sb.append("<");
-			sb.append(entry.getKey());
+			if (key == null) {
+				sb.append("null");
+			} else {
+				sb.append("'");
+				sb.append(key);
+				sb.append("'");
+			}
 			sb.append(",");
-			sb.append(entry.getValue());
+			if (value == null) {
+				sb.append("null");
+			} else {
+				sb.append("'");
+				sb.append(value);
+				sb.append("'");
+			}
 			sb.append(">");
 			sb.append(", ");
 		}
@@ -35,6 +49,7 @@ public class Tool {
 			sb.delete(sb.length() - 2, sb.length());
 		}
 		System.out.println(sb.toString());
+		System.out.println();
 	}
 
 }
