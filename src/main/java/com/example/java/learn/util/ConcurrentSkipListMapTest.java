@@ -1,13 +1,13 @@
 package com.example.java.learn.util;
 
-import java.util.LinkedHashMap;
+import java.util.concurrent.ConcurrentSkipListMap;
 
-public class LinkedHashMapTest {
+public class ConcurrentSkipListMapTest {
 	
 	public static void main(String[] args) {
-		LinkedHashMap<String, String> c = new LinkedHashMap<String, String>();
+		ConcurrentSkipListMap<String, String> c = new ConcurrentSkipListMap<String, String>();
 		Tool.prepare(c);
-
+		
 		// test null value
 		c.put("null_value", null);
 		Tool.print(c);

@@ -18,19 +18,19 @@ public class TreeMapTest {
 		
 		// subMap()
 		System.out.print("subMap: ");
-		Tool.printMap(c.subMap("1", "3"));
+		Tool.print(c.subMap("1", "3"));
 		
 		// tailMap()
 		System.out.print("tailMap: ");
-		Tool.printMap(c.tailMap("9"));
+		Tool.print(c.tailMap("9"));
 
 		// test null value
 		c.put("null_value", null);
-		Tool.printMap(c);
+		Tool.print(c);
 
 		// test null key
 		c.put(null, null);
-		Tool.printMap(c);
+		Tool.print(c);
 	}
 
 }

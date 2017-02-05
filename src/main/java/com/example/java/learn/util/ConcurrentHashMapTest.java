@@ -1,13 +1,13 @@
 package com.example.java.learn.util;
 
-import java.util.LinkedHashMap;
+import java.util.concurrent.ConcurrentHashMap;
 
-public class LinkedHashMapTest {
+public class ConcurrentHashMapTest {
 	
 	public static void main(String[] args) {
-		LinkedHashMap<String, String> c = new LinkedHashMap<String, String>();
+		ConcurrentHashMap<String, String> c = new ConcurrentHashMap<String, String>();
 		Tool.prepare(c);
-
+		
 		// test null value
 		c.put("null_value", null);
 		Tool.print(c);

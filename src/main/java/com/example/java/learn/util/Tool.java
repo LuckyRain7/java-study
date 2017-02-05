@@ -3,11 +3,19 @@ package com.example.java.learn.util;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Set;
 import java.util.UUID;
 
 public class Tool {
 
 	private Tool() {
+	}
+	
+	public static void prepare(Set<String> set) {
+		for (int i = 9; i > 0; --i) {
+			String key = i + "_" + UUID.randomUUID().toString().toLowerCase();
+			set.add(key);
+		}
 	}
 
 	public static void prepare(Map<String, String> map) {
@@ -17,8 +25,30 @@ public class Tool {
 			map.put(key, value);
 		}
 	}
+	
+	public static void print(Set<String> set) {
+		Iterator<String> it = set.iterator();
+		StringBuilder sb = new StringBuilder();
+		boolean empty = set.isEmpty();
+		while (it.hasNext()) {
+			String value = it.next();
+			if (value == null) {
+				sb.append("null");
+			} else {
+				sb.append("'");
+				sb.append(value);
+				sb.append("'");
+			}
+			sb.append(", ");
+		}
+		if (!empty) {
+			sb.delete(sb.length() - 2, sb.length());
+		}
+		System.out.println(sb.toString());
+		System.out.println();
+	}
 
-	public static void printMap(Map<String, String> map) {
+	public static void print(Map<String, String> map) {
 		Iterator<Entry<String, String>> it = map.entrySet().iterator();
 		StringBuilder sb = new StringBuilder();
 		boolean empty = map.isEmpty();

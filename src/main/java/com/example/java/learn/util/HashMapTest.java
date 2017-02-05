@@ -10,11 +10,11 @@ public class HashMapTest {
 		
 		// test null value
 		c.put("null_value", null);
-		Tool.printMap(c);
+		Tool.print(c);
 
 		// test null key
 		c.put(null, null);
-		Tool.printMap(c);
+		Tool.print(c);
 	}
 
 }
