@@ -1,13 +1,13 @@
 package com.example.java.learn.util;
 
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 
-public class HashMapTest {
+public class LinkedHashMapTest {
 	
 	public static void main(String[] args) {
-		HashMap<String, String> c = new HashMap<String, String>();
+		LinkedHashMap<String, String> c = new LinkedHashMap<String, String>();
 		Tool.prepare(c);
-		
+
 		// test null value
 		c.put("null_value", null);
 		Tool.printMap(c);

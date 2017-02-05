@@ -12,10 +12,13 @@ public class ArrayListTest {
 		list.add(1);
 		list.add(null);
 		list.add(3);
-		System.out.println(list.size());
+		Integer dup = 4;
+		list.add(dup);
+		list.add(dup);
 		for (Integer e : list) {
 			System.out.println(e);
 		}
+		System.out.println(list.toArray(new Integer[list.size()]));
 	}
 
 }

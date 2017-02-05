@@ -10,9 +10,9 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class Adviser {
+public class BeanAdvisers {
 	
-	public Adviser() {
+	public BeanAdvisers() {
 		System.err.println("oops: Adviser()");
 	}
 	

@@ -1,4 +1,4 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.concurrent;
 
 import java.util.concurrent.CopyOnWriteArrayList;
 
@@ -9,7 +9,9 @@ public class CopyOnWriteArrayListTest {
 		list.add(1);
 		list.add(null);
 		list.add(3);
-		System.out.println(list.size());
+		Integer dup = 4;
+		list.add(dup);
+		list.add(dup);
 		for (Integer e : list) {
 			System.out.println(e);
 		}
