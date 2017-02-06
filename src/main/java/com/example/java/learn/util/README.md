@@ -33,7 +33,7 @@
 | ConcurrentLinkedQueue | Y | 单链表 + CAS | N | N/A | N/A | |
 | ConcurrentLinkedDeque | Y | 双链表 + CAS | N | N/A | N/A | |
 | ArrayBlockingQueue | Y | 循环数组 | N | N/A | 定长, 不可扩容 | 1. 有 fair 选项; 2. 有一把公共的 ReentrantLock 与 notFull、notEmpty 两个 Condition 管理队列满或空时的阻塞状态 |
-| LinkedBlockingQueue | Y | 单链表 | N | N/A | 可选定长 | 利用链表的特征，分离了 takeLock 与 putLock 两把锁，继续用 notEmpty、notFull 管理队列满或空时的阻塞状态 |
-| LinkedBlockingDeque | Y | 双链表 | N | N/A | 可选定长 | 利用链表的特征，分离了 takeLock 与 putLock 两把锁，继续用 notEmpty、notFull 管理队列满或空时的阻塞状态  |
+| LinkedBlockingQueue | Y | 单链表 | N | N/A | 定长或无界 | 利用链表的特征，分离了 takeLock 与 putLock 两把锁，继续用 notEmpty、notFull 管理队列满或空时的阻塞状态 |
+| LinkedBlockingDeque | Y | 双链表 | N | N/A | 定长或无界 | 利用链表的特征，分离了 takeLock 与 putLock 两把锁，继续用 notEmpty、notFull 管理队列满或空时的阻塞状态  |
 | PriorityBlockingQueue | Y | [平衡最小二叉堆](http://blog.csdn.net/lcore/article/details/9100073) | N | 11 | old < 64 则 2 * old; 否则 1.5 * old | 空穴, sift up，sift down |
 | DelayQueue | Y | PriorityQueue | N | 见 PriorityQueue | 见 PriorityQueue | |
