@@ -1,6 +1,8 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.set.threadsafe;
 
 import java.util.concurrent.CopyOnWriteArraySet;
+
+import com.example.java.learn.util.tool.Tool;
 
 public class CopyOnWriteArraySetTest {
 	

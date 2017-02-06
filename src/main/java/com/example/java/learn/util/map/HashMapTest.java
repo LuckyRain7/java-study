@@ -1,6 +1,8 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.map;
 
 import java.util.HashMap;
+
+import com.example.java.learn.util.tool.Tool;
 
 public class HashMapTest {
 	

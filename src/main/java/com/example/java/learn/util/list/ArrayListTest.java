@@ -1,4 +1,4 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.list;
 
 import java.util.ArrayList;
 

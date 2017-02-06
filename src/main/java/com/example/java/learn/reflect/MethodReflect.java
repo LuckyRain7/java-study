@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class MethodReflect {
 	
-	private class Child extends Book {
+	static class Child extends Book {
 		private Date createdAt = new Date();
 
 		public Date getCreatedAt() {

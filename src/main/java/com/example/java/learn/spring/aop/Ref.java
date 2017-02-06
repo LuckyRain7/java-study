@@ -1,7 +1,5 @@
 package com.example.java.learn.spring.aop;
 
-import org.springframework.stereotype.Component;
-
 //@Component
 public class Ref {
 	

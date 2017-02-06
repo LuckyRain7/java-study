@@ -1,6 +1,8 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.map.threadsafe;
 
 import java.util.concurrent.ConcurrentSkipListMap;
+
+import com.example.java.learn.util.tool.Tool;
 
 public class ConcurrentSkipListMapTest {
 	

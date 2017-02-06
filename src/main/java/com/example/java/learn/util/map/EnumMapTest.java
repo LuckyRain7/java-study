@@ -1,4 +1,4 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.map;
 
 import java.util.EnumMap;
 import java.util.Iterator;

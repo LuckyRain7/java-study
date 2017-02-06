@@ -1,8 +1,5 @@
 package com.example.java.learn.jvm.chap02.sec04;
 
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * -XX:MaxMetaspaceSize=10M
  * 

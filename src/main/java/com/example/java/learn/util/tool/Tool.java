@@ -1,9 +1,9 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.tool;
 
+import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
-import java.util.Set;
 import java.util.UUID;
 
 public class Tool {
@@ -11,7 +11,7 @@ public class Tool {
 	private Tool() {
 	}
 	
-	public static void prepare(Set<String> set) {
+	public static void prepare(Collection<String> set) {
 		for (int i = 9; i > 0; --i) {
 			String key = i + "_" + UUID.randomUUID().toString().toLowerCase();
 			set.add(key);
@@ -26,7 +26,7 @@ public class Tool {
 		}
 	}
 	
-	public static void print(Set<String> set) {
+	public static void print(Collection<String> set) {
 		Iterator<String> it = set.iterator();
 		StringBuilder sb = new StringBuilder();
 		boolean empty = set.isEmpty();

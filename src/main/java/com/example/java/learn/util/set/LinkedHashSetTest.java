@@ -1,6 +1,8 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.set;
 
 import java.util.LinkedHashSet;
+
+import com.example.java.learn.util.tool.Tool;
 
 public class LinkedHashSetTest {
 	

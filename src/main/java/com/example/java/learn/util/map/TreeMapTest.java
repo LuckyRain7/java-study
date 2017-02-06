@@ -1,6 +1,8 @@
-package com.example.java.learn.util;
+package com.example.java.learn.util.map;
 
 import java.util.TreeMap;
+
+import com.example.java.learn.util.tool.Tool;
 
 public class TreeMapTest {
 	

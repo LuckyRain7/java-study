@@ -11,6 +11,7 @@ public class TestAllocation {
 	
 	private static final int _1MB = 1024 * 1024;
 
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		byte[] alloc1;
 		byte[] alloc2;

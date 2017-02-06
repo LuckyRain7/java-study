@@ -1,6 +1,7 @@
 package com.example.java.learn.jvm.chap02.sec04;
 
 import java.lang.reflect.Field;
+
 import sun.misc.Unsafe;  
 
 /**
@@ -9,6 +10,7 @@ import sun.misc.Unsafe;
  * @author zhouwei
  *
  */
+@SuppressWarnings("restriction")
 public class DirectMemmoryOOM {
 	
 	private static final int _1MB = 1024 * 1024;

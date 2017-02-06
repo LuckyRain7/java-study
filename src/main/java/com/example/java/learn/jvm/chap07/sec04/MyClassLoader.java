@@ -7,6 +7,7 @@ import java.net.URL;
 
 public class MyClassLoader extends ClassLoader {
 
+	@SuppressWarnings("resource")
 	@Override
 	public Class<?> findClass(String name) throws ClassNotFoundException {
 		Class<?> ret = findLoadedClass(name);
@@ -52,6 +53,7 @@ public class MyClassLoader extends ClassLoader {
 		System.out.println();
 		System.out.println("sun.boot.class.path: " + System.getProperty("sun.boot.class.path"));
 		System.out.println();
+		@SuppressWarnings("restriction")
 		URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
 		for (int i = 0; i < urls.length; i++) {
 			System.out.println(urls[i].toExternalForm());

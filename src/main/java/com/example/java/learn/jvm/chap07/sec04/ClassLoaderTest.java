@@ -50,6 +50,7 @@ public class ClassLoaderTest {
 		System.out.println();
 		System.out.println("sun.boot.class.path: " + System.getProperty("sun.boot.class.path"));
 		System.out.println();
+		@SuppressWarnings("restriction")
 		URL[] urls = sun.misc.Launcher.getBootstrapClassPath().getURLs();
 		for (int i = 0; i < urls.length; i++) {
 			System.out.println(urls[i].toExternalForm());
