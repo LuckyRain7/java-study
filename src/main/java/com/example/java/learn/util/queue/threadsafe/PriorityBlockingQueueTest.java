@@ -1,11 +1,11 @@
 package com.example.java.learn.util.queue.threadsafe;
 
-import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.PriorityBlockingQueue;
 
-public class ArrayBlockingQueueTest {
+public class PriorityBlockingQueueTest {
 	
 	public static void main(String[] args) {
-		ArrayBlockingQueue<Integer> c = new ArrayBlockingQueue<Integer>(16, true);
+		PriorityBlockingQueue<Integer> c = new PriorityBlockingQueue<Integer>();
 		c.add(9);
 		c.add(8);
 		c.add(1);

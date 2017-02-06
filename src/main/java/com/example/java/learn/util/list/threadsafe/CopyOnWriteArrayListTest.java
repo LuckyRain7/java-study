@@ -11,11 +11,6 @@ public class CopyOnWriteArrayListTest {
 		Tool.prepare(c);
 		Tool.print(c);
 		
-		// test duplications
-		String dup = "dup";
-		c.add(dup);
-		c.add(dup);
-		
 		// test null
 		c.add(null);
 		Tool.print(c);

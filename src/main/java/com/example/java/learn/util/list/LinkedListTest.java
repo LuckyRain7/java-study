@@ -9,9 +9,6 @@ public class LinkedListTest {
 		list.add(1);
 		list.add(null);
 		list.add(3);
-		Integer dup = 4;
-		list.add(dup);
-		list.add(dup);
 		for (Integer e : list) {
 			System.out.println(e);
 		}

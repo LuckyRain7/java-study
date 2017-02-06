@@ -8,9 +8,7 @@ public class LinkedBlockingDequeTest {
 		LinkedBlockingDeque<Integer> c = new LinkedBlockingDeque<Integer>();
 		c.add(9);
 		c.add(8);
-		final Integer dup = 1;
-		c.add(dup);
-		c.add(dup);
+		c.add(1);
 		Integer first = null;
 		while ((first = c.poll()) != null) {
 			System.out.println(first);
