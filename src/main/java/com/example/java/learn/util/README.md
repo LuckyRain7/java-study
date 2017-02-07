@@ -3,7 +3,7 @@
 | 名称 | 线程安全 | 数据结构 | 允许 null | 默认初始容量 | 扩容策略 | 备注 |
 | --- | :-----: | :-----: | :------: | ---------: | ------: | --- |
 | ArrayList | N | 数组 | Y | 10 | 1.5 * old | |
-| LinkedList | N | 双链表 | Y | N/A | N/A | 作为链表使用时，最好换用低复杂度的 [TreeList](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/list/TreeList.html) |
+| LinkedList | N | 双链表 | Y | N/A | N/A | 作为 List 使用时，最好换用低复杂度的 [TreeList](https://commons.apache.org/proper/commons-collections/apidocs/org/apache/commons/collections4/list/TreeList.html) |
 | CopyOnWriteArrayList | Y | 数组 + 快照 | Y | 0 | +1 | |
 
 ## Map
