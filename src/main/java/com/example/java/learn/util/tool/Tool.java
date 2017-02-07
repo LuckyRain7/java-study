@@ -3,8 +3,8 @@ package com.example.java.learn.util.tool;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.UUID;
+import java.util.function.BiConsumer;
 
 public class Tool {
 
@@ -49,35 +49,29 @@ public class Tool {
 	}
 
 	public static void print(Map<String, String> map) {
-		Iterator<Entry<String, String>> it = map.entrySet().iterator();
-		StringBuilder sb = new StringBuilder();
-		boolean empty = map.isEmpty();
-		while (it.hasNext()) {
-			Entry<String, String> entry = it.next();
-			String key = entry.getKey();
-			String value = entry.getValue();
-			sb.append("<");
-			if (key == null) {
-				sb.append("null");
-			} else {
-				sb.append("'");
-				sb.append(key);
-				sb.append("'");
+		final StringBuilder sb = new StringBuilder();
+		map.forEach(new BiConsumer<String, String>() {
+			@Override
+			public void accept(String key, String value) {
+				sb.append("<");
+				if (key == null) {
+					sb.append("null");
+				} else {
+					sb.append("'");
+					sb.append(key);
+					sb.append("'");
+				}
+				sb.append(",");
+				if (value == null) {
+					sb.append("null");
+				} else {
+					sb.append("'");
+					sb.append(value);
+					sb.append("'");
+				}
+				sb.append("> ");
 			}
-			sb.append(",");
-			if (value == null) {
-				sb.append("null");
-			} else {
-				sb.append("'");
-				sb.append(value);
-				sb.append("'");
-			}
-			sb.append(">");
-			sb.append(", ");
-		}
-		if (!empty) {
-			sb.delete(sb.length() - 2, sb.length());
-		}
+		});
 		System.out.println(sb.toString());
 		System.out.println();
 	}

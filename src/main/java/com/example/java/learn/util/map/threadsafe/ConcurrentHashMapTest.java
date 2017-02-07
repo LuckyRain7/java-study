@@ -1,5 +1,7 @@
 package com.example.java.learn.util.map.threadsafe;
 
+import java.util.Iterator;
+import java.util.Map.Entry;
 import java.util.concurrent.ConcurrentHashMap;
 
 import com.example.java.learn.util.tool.Tool;
@@ -15,8 +17,10 @@ public class ConcurrentHashMapTest {
 		Thread thread = new Thread(new Runnable() {
 			@Override
 			public void run() {
-				for (String key : c.keySet()) {
-					c.remove(key);
+				Iterator<Entry<String, String>> it = c.entrySet().iterator();
+				while (it.hasNext()) {
+					it.next();
+					it.remove();
 					try {
 						Thread.sleep(100L);
 					} catch (InterruptedException e) {
