@@ -9,13 +9,14 @@ public class ParkAndUnparkDemo {
 		private final Thread thread;
 
 		public MyThread(Thread thread) {
+			super("MyThread");
 			this.thread = thread;
 		}
 
 		@Override
 		public void run() {
 			try {
-				Thread.sleep(3000L);
+				Thread.sleep(15000L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -33,13 +34,12 @@ public class ParkAndUnparkDemo {
 		}
 	}
 	
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) {
 		MyThread myThread = new MyThread(Thread.currentThread());
 		myThread.start();
         System.out.println("before park");
 		LockSupport.park("ParkAndUnparkDemo");
 		System.out.println("after park");
-		Thread.sleep(3000L);
 	}
 
 }
