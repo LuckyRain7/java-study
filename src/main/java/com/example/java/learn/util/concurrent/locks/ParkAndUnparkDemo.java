@@ -24,6 +24,9 @@ public class ParkAndUnparkDemo {
 			System.out.println("Blocker Info: " + LockSupport.getBlocker(thread));
 			LockSupport.unpark(thread);
 			try {
+				// we have to sleep here so that 
+				// LockSupport.getBlocker(thread)
+				// returns null
 				Thread.sleep(1L);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
