@@ -9,6 +9,7 @@ public class ConcurrentSkipListMapTest {
 	public static void main(String[] args) {
 		ConcurrentSkipListMap<String, String> c = new ConcurrentSkipListMap<String, String>();
 		Tool.prepare(c);
+		Tool.print(c);
 		
 		// test null value
 		c.put("null_value", null);
