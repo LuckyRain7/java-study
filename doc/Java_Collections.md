@@ -21,7 +21,7 @@
 | 名称 | 线程安全 | 数据结构 | 允许 null | 有序性 | 备注 |
 | --- | :-----: | ------- | :------: | :---: | :--: |
 | HashSet | 不安全 | HashMap | 允许 | 无序 | |
-| LinkedHashSet | 不安全 | LinkedHashMap | 允许 | 无序 |
+| LinkedHashSet | 不安全 | LinkedHashMap | 允许 | 有序(insertion-order) |
 | TreeSet | 不安全 | TreeMap | 不允许 | 有序 |
 | ConcurrentSkipListSet | 安全 | ConcurrentSkipListMap | 不允许 | 有序 |
 | CopyOnWriteArraySet | 安全 | CopyOnWriteArrayList | 允许 | 无序 |
