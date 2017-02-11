@@ -4,7 +4,7 @@ import java.util.LinkedHashMap;
 
 import com.example.java.learn.util.tool.Tool;
 
-public class LinkedHashMapTest {
+public class AccessOrderedLinkedHashMapTest {
 	
 	private static final String NULL_VALUE = "null_value";
 	private static final String APPLE = "apple";
