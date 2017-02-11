@@ -9,7 +9,7 @@ public class ClassLoaderTest {
 	public static void main(String[] args)
 			throws InstantiationException, IllegalAccessException, ClassNotFoundException {
 		printClassLoaders();
-		
+
 		ClassLoader myLoader = new ClassLoader() {
 			@Override
 			public Class<?> loadClass(String name) throws ClassNotFoundException {
@@ -30,12 +30,14 @@ public class ClassLoaderTest {
 		};
 		String myStr = (String) myLoader.loadClass("java.lang.String").newInstance();
 		System.out.println("myStr: " + myStr);
-		
+
 		Object obj = myLoader.loadClass("com.example.java.learn.jvm.chap07.sec04.ClassLoaderTest").newInstance();
 		System.out.println(obj.getClass());
 		System.out.println(obj instanceof ClassLoaderTest);
+		
+		printClassLoaders();
 	}
-	
+
 	static void printClassLoaders() {
 		ClassLoader loader = ClassLoaderTest.class.getClassLoader(); // 获得加载ClassLoaderTest.class这个类的类加载器
 		while (loader != null) {
@@ -56,6 +58,14 @@ public class ClassLoaderTest {
 			System.out.println(urls[i].toExternalForm());
 		}
 		System.out.println();
+
+		System.out.println();
+		System.out.println("extClassloader加载以下文件：");
+		System.out.println(System.getProperty("java.ext.dirs"));
+
+		System.out.println();
+		System.out.println("appClassLoader加载以下文件：");
+		System.out.println(System.getProperty("java.class.path"));
 	}
 
 }
