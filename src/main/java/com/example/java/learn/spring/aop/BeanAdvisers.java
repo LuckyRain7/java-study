@@ -1,6 +1,8 @@
 package com.example.java.learn.spring.aop;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.After;
+import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
@@ -19,25 +21,58 @@ public class BeanAdvisers {
 	}
 	
 	@Before("test()")
-	public void beforeTest() {
-		System.out.println("beforeTest");
+	public void beforeTest_1() {
+		System.out.println("before_1 OK");
 	}
 	
-//	@After("test()")
-	public void afterTest() {
-		System.out.println("afterTest");
+	@Before("test()")
+	public void beforeTest_2() {
+		System.out.println("before_2 OK");
 	}
 	
-//	@Around("test()")
-	public Object aroundTest(ProceedingJoinPoint pjp) {
-		System.out.println("before1");
+	@After("test()")
+	public void afterTest_2() {
+		System.out.println("after_2 OK");
+	}
+	
+	@After("test()")
+	public void afterTest_1() {
+		System.out.println("after_1 OK");
+	}
+	
+	@After("test()")
+	public void afterReturningTest_1() {
+		System.out.println("afterReturning_1 OK");
+	}
+	
+	@After("test()")
+	public void afterReturningTest_2() {
+		System.out.println("afterReturning_2 OK");
+	}
+	
+	@Around("test()")
+	public Object aroundTest_2(ProceedingJoinPoint pjp) {
+		System.out.println("around_2 start");
 		Object o = null;
 		try {
 			o = pjp.proceed();
 		} catch(Throwable t) {
 			t.printStackTrace();
 		}
-		System.out.println("after1");
+		System.out.println("around_2 end");
+		return o;
+	}
+	
+	@Around("test()")
+	public Object aroundTest_1(ProceedingJoinPoint pjp) {
+		System.out.println("around_1 start");
+		Object o = null;
+		try {
+			o = pjp.proceed();
+		} catch(Throwable t) {
+			t.printStackTrace();
+		}
+		System.out.println("around_1 end");
 		return o;
 	}
 	
