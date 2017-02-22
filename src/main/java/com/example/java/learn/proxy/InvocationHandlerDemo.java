@@ -36,6 +36,9 @@ public class InvocationHandlerDemo implements InvocationHandler {
 		System.out.println(dest);
 		Bird proxy = (Bird) newInstance(Bird.class);
 		proxy.fly();
+		System.out.println("real class: " + proxy.getClass());
+		System.out.println(proxy instanceof Bird);
+		System.out.println(Bird.class.isAssignableFrom(proxy.getClass()));
 	}
 
 }
