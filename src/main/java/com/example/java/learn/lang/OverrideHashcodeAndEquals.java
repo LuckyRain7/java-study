@@ -2,7 +2,7 @@ package com.example.java.learn.lang;
 
 import java.util.Arrays;
 
-public class OverrideHashcode {
+public class OverrideHashcodeAndEquals {
 
 	private short ashort;
 	private char achar;
@@ -42,7 +42,7 @@ public class OverrideHashcode {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		OverrideHashcode other = (OverrideHashcode) obj;
+		OverrideHashcodeAndEquals other = (OverrideHashcodeAndEquals) obj;
 		if (abool != other.abool)
 			return false;
 		if (abyte != other.abyte)
