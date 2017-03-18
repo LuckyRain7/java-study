@@ -30,7 +30,7 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
 
 		// prepare tasks
 		List<Callable<Long>> tasks = Lists.newArrayList();
-		for (int i = 0; i < Runtime.getRuntime().availableProcessors(); ++i) {
+		for (int i = 0; i < 2 * Runtime.getRuntime().availableProcessors(); ++i) {
 			final int j = 100 + i;
 			Callable<Long> task = new Callable<Long>() {
 				@Override
